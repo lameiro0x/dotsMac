@@ -1,0 +1,19 @@
+## === Configuración básica de nano para C ===
+
+set linenumbers          # Muestra números de línea
+set tabsize 4            # Tamaño del tabulador
+set autoindent           # Indentación automática
+#set smooth               # Desplazamiento suave
+set constantshow         # Muestra posición del cursor
+set indicator            # Barra lateral de posición (Nano 6+)
+set softwrap             # Ajuste de línea visual
+set mouse                # Permite usar el ratón
+
+## === Colores básicos de interfaz ===
+set titlecolor cyan,black
+set statuscolor white,blue
+set selectedcolor black,cyan
+set numbercolor yellow,black
+
+## === Resaltado de sintaxis para C ===
+include "/opt/homebrew/share/nano/*.nanorc"

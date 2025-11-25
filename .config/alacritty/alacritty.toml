@@ -1,0 +1,30 @@
+general.import = [
+    "~/.config/alacritty/themes/themes/github_dark_high_contrast.toml"
+]
+general.live_config_reload = true
+
+[font]
+size = 14
+
+[font.normal]
+family = "Hack Nerd Font Propo"
+#style = "Regular"
+
+[window]
+decorations = "full"
+dynamic_padding = false
+opacity = 0.7
+
+[window.dimensions]
+columns = 200
+lines = 55
+
+
+
+[window.padding]
+x = 18
+y = 16
+
+
+
+

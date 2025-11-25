@@ -1,0 +1,134 @@
+format = """
+[](#1a1a1a)\
+$username\
+[](bg:#3a3a3a fg:#1a1a1a)\
+$directory\
+[](fg:#3a3a3a bg:#6e6e6e)\
+$git_branch\
+$git_status\
+[](fg:#6e6e6e bg:#e6e6e6)\
+$c\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$python\
+$scala\
+[](fg:#e6e6e6 bg:#3a3a3a)\
+$docker_context\
+[](fg:#3a3a3a bg:#1a1a1a)\
+$time\
+[ ](fg:#1a1a1a)\
+"""
+
+[username]
+show_always = true
+style_user = "bg:#1a1a1a fg:#e6e6e6"
+style_root = "bg:#1a1a1a fg:#ffffff"
+format = '[$user ]($style)'
+disabled = false
+
+[os]
+disabled = true
+
+[directory]
+style = "bg:#3a3a3a fg:#ffffff"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = "😿"
+style = "bg:#6e6e6e fg:#ffffff"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#6e6e6e fg:#ffffff"
+format = '[$all_status$ahead_behind ]($style)'
+
+[c]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = "🐍"
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#e6e6e6 fg:#1a1a1a"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#3a3a3a fg:#ffffff"
+format = '[ $symbol $context ]($style) $path'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#1a1a1a fg:#e6e6e6"
+format = '[ 💜🐭 $time ]($style)'

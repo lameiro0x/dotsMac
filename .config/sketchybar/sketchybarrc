@@ -1,0 +1,129 @@
+#!/bin/bash
+
+# Colores y fuentes
+BG=0x00000000  # Fondo de barra transparente
+FONT="Hack Nerd Font Propo"
+FONT_SIZE=14
+FONT_COLOR=0xffffffff  # Color de fuente blanco
+ICON_FONT_SIZE=16
+
+ITEM_PADDING=8
+ITEM_COLOR=0xff000000  # Fondo negro sólido
+GAP=2
+
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+# Configuración de la barra
+sketchybar --bar \
+  margin=0 y_offset=6 height=38 \
+  corner_radius=0 blur_radius=0 \
+  border_width=0 \
+  padding_left=17 padding_right=20 \
+  shadow.color=0x00000000 shadow.angle=0 \
+  color=$BG
+
+# Configuración por defecto de los ítems
+sketchybar --default \
+  label.font="$FONT:Regular:$FONT_SIZE" label.color=$FONT_COLOR \
+  label.padding_left=$ITEM_PADDING label.padding_right=$ITEM_PADDING \
+  icon.font="$FONT:Regular:$ICON_FONT_SIZE" \
+  icon.padding_left=$ITEM_PADDING icon.padding_right=$ITEM_PADDING \
+  background.color=$ITEM_COLOR \
+  background.corner_radius=9 \
+  background.height=28 \
+  background.padding_left=6 background.padding_right=6 \
+  blur_radius=0
+
+# ────────────── LADO IZQUIERDO ──────────────
+
+# Ítem individual: Manzana blanca ()
+sketchybar --add item os left \
+  --set os \
+  icon= \
+  icon.color=0xffffffff \
+  icon.font.size=20 \
+  label.drawing=off \
+  background.padding_left=$GAP
+
+# Ítem individual: Usuario (icono + nombre)
+sketchybar --add item user left \
+  --set user \
+  icon=󰀄 \
+  icon.color=0xfff38ba8 \
+  icon.font.size=16 \
+  label="$(whoami)" \
+  label.font.style="Bold" \
+  icon.padding_right=4 \
+  label.padding_left=0 \
+  background.padding_left=$GAP
+
+# Aplicación activa
+sketchybar --add item front-app left \
+  --set front-app \
+  script="$PLUGIN_DIR/front-app.sh" \
+  label.font.style="Bold" \
+  icon.padding_right=2 \
+  label.padding_left=2 \
+  background.padding_left=$GAP \
+  --subscribe front-app front_app_switched
+
+# ────────────── LADO DERECHO ──────────────
+
+# Fecha y hora (debe añadirse primero para que quede al extremo derecho)
+sketchybar --add item clock right \
+  --set clock \
+  script="$PLUGIN_DIR/clock.sh" \
+  update_freq=10 \
+  icon.padding_right=4 \
+  label.padding_left=0 \
+  background.padding_left=$GAP
+
+# Velocidad de red (más a la izquierda del grupo derecho)
+sketchybar --add item net_speed right \
+  --set net_speed \
+  script="$PLUGIN_DIR/net_speed.sh" \
+  update_freq=3 \
+  icon.drawing=off \
+  label.color=0xffffffff \
+  icon.font.size=18 \
+  icon.padding_right=2 \
+  label.padding_left=6 \
+  background.padding_left=$GAP 
+
+# Dirección IP pública + VPN (detecta y cambia icono automáticamente)
+sketchybar --add item vpn_ip right \
+  --set vpn_ip \
+  script="$PLUGIN_DIR/ip_detector.sh" \
+  update_freq=10 \
+  icon.color=0xfffab387 \
+  icon.padding_right=2 \
+  label.padding_left=2 \
+  label.color=0xffffffff \
+  background.padding_left=$GAP
+
+# IP interna de la VPN (si aplica)
+sketchybar --add item vpn_extra_ip right \
+  --set vpn_extra_ip \
+  icon.color=0xffa6e3a1 \
+  icon.padding_right=2 \
+  label.padding_left=2 \
+  label.color=0xffffffff \
+  background.padding_left=$GAP
+
+
+# --- SPACES INDICATOR ---
+sketchybar --add item spaces center \
+           --set spaces \
+                script="~/.config/sketchybar/plugins/spaces.sh" \
+                updates=on \
+                label.font="JetBrainsMono Nerd Font:Bold:13.0" \
+                label.color=0xffffffff \
+                label.padding_left=10 \
+                label.padding_right=10 \
+           --subscribe spaces space_change front_app_switched
+
+
+
+# ────────────── FINAL ──────────────
+
+sketchybar --update

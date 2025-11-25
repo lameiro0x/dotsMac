@@ -1,0 +1,1 @@
+("~/.emacs.d/elpa/pdf-tools-20240429.407/build/server/" "~/.emacs.d/")
