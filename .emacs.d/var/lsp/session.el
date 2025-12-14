@@ -1,1 +1,0 @@
-#s(lsp-session ("/Users/Fomo/hello-scala/hello" "/Users/Fomo/Downloads" "/home/fomo/Downloads") ("/home/fomo/.config/qtile/") #s(hash-table test equal data (metals ("/Users/Fomo/Downloads" "/Users/Fomo/hello-scala/hello"))) #s(hash-table test equal) #s(hash-table test equal))
