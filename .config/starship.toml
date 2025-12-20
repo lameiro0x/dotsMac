@@ -31,8 +31,7 @@ $time\
 show_always = true
 style_user = "bg:#1a1a1a fg:#e6e6e6"
 style_root = "bg:#1a1a1a fg:#ffffff"
-format = '[$user ]($style)'
-disabled = false
+format = "[ lameiro0x ]($style)"
 
 [os]
 disabled = true

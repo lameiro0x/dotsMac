@@ -1,2 +1,4 @@
 # macOS system files
+.config/.DS_Store
+.config/fish/.DS_Store
 .DS_Store
