@@ -1,4 +1,6 @@
 # macOS system files
-.config/.DS_Store
-.config/fish/.DS_Store
 .DS_Store
+**/.DS_Store
+
+# JGit autogenera este archivo (especifico de la maquina/disco)
+.config/jgit/
